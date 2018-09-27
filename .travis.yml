@@ -1,0 +1,22 @@
+---
+sudo: required
+services:
+  - docker
+
+language: ruby
+rvm:
+  - 2.5.1
+cache: bundler
+
+before_install:
+  - docker pull hadolint/hadolint
+
+script:
+  - docker run -i hadolint/hadolint hadolint - < ./Dockerfile
+  - bundle exec rspec
+
+after_success:
+  - docker images
+
+notifications:
+  email: false
