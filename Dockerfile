@@ -1,4 +1,4 @@
-FROM ruby:2.5.1-alpine AS base
+FROM ruby:2.6-alpine AS base
 
 LABEL name="jasonheecs/docker-alpine-ruby"
 LABEL version="1.0.0"
